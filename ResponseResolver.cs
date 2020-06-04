@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using CapsBallShared;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace CapsBallCore
@@ -10,7 +11,7 @@ namespace CapsBallCore
 
         static ResponseResolver()
         {
-            //resolver.Add(new CreateTeamRequestHandler(), "addforce");
+            resolver.Add(new GetTeamResponseHandler(), CommandsTranslator.ResponseToString(ResponseCommand.GET_TEAM));
         }
 
         public static string HandlerToString(IResponseHandler handler) =>
