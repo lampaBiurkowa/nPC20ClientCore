@@ -38,7 +38,7 @@ namespace CapsBallCore
                 System.Console.WriteLine(players[i].Account.Points);
 
             }
-            TeamGot?.Invoke(new Team(name, targetCount, players));
+            TeamGot?.Invoke(new Team(name, players));
         }
     }
 }

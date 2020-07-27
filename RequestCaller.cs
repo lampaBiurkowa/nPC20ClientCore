@@ -8,7 +8,7 @@ namespace CapsBallCore
     {
         public static void RequestCreateTeam(Team team)
         {
-            List<string> parameters = new List<string>(new string[] { team.Name, team.TargetCount.ToString() });
+            List<string> parameters = new List<string>(new string[] { team.Name });
             RequestPackage package = new RequestPackage(RequestCommand.CREATE_TEAM, parameters);
             Sender.Send(package.GetRawData());
         }

@@ -11,6 +11,7 @@ namespace CapsBallCore
         {
             SessionData.Ready += onReady;
             Receiver.Received += onReceived;
+            
             SessionData.Initialize(serverAddress, port);
         }
 
