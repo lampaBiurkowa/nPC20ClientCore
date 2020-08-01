@@ -27,16 +27,9 @@ namespace CapsBallCore
 
         void onReceived(Package package)
         {
+            System.IO.File.WriteAllText("jd3.txt", $"RISIWD {package.MessageContent}");
             ResponsePackage responsePackage = new ResponsePackage(package);
-            if (checkIfFakeClient(responsePackage))
-                return;
-
             responsePackage.TryHandle();
-        }
-
-        static bool checkIfFakeClient(ResponsePackage package)
-        {
-            return false;
         }
     }
 }

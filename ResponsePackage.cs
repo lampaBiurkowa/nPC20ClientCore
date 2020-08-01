@@ -14,23 +14,30 @@ namespace CapsBallCore
             Parameters = parameters;
         }
 
-        public ResponsePackage(IResponseHandler handler)
-        {
-            this.handler = handler;
-        }
+        public ResponsePackage(IResponseHandler handler) => this.handler = handler;
 
         public ResponsePackage(Package package)
         {
+            System.IO.File.WriteAllText("jd.txt", package.MessageContent);
             string[] basicComponents = package.MessageContent.Split(COMMAND_SPLIT_CHAR);
+            System.IO.File.WriteAllText("jd2.txt", basicComponents[0]);
             handler = ResponseResolver.StringToHandler(basicComponents[0]);
-            Parameters = new List<string>(basicComponents[1].Split(new string[] { PARAMETER_SPLIT_TEXT }, System.StringSplitOptions.None));
+        
+            if (basicComponents.Length == 1)
+                Parameters = new List<string>();
+            else
+                Parameters = new List<string>(basicComponents[1].Split(new string[] { PARAMETER_SPLIT_TEXT }, System.StringSplitOptions.None));
         }
 
         public ResponsePackage(string rawData)
         {
             string[] components = rawData.Split(COMMAND_SPLIT_CHAR);
             handler = ResponseResolver.StringToHandler(components[0]);
-            Parameters = new List<string>(components[1].Split(new string[] { PARAMETER_SPLIT_TEXT }, System.StringSplitOptions.None));
+
+            if (components.Length == 1)
+                Parameters = new List<string>();
+            else
+                Parameters = new List<string>(components[1].Split(new string[] { PARAMETER_SPLIT_TEXT }, System.StringSplitOptions.None));
         }
 
         public override string GetRawData()
