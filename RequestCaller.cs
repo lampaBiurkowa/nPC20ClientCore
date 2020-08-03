@@ -6,13 +6,6 @@ namespace CapsBallCore
 {
     public static class RequestCaller
     {
-        public static void RequestCreateTeam(Team team)
-        {
-            List<string> parameters = new List<string>(new string[] { team.Name });
-            RequestPackage package = new RequestPackage(RequestCommand.CREATE_TEAM, parameters);
-            Sender.Send(package.GetRawData());
-        }
-
         public static void RequestJoinGame()
         {
             RequestPackage package = new RequestPackage(RequestCommand.JOIN_GAME);
@@ -40,10 +33,9 @@ namespace CapsBallCore
             Sender.Send(package.GetRawData());
         }
 
-        public static void RequestChallangeTeam(string ownTeamName, string challangedTeamName)
+        public static void RequestStartGame()
         {
-            List<string> parameters = new List<string>(new string[] { ownTeamName, challangedTeamName });
-            RequestPackage package = new RequestPackage(RequestCommand.CHALLANGE_TEAM, parameters);
+            RequestPackage package = new RequestPackage(RequestCommand.START_GAME);
             Sender.Send(package.GetRawData());
         }
     }

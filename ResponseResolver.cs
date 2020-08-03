@@ -11,7 +11,8 @@ namespace CapsBallCore
         static Dictionary<IResponseHandler, string> resolver = new Dictionary<IResponseHandler, string>()
         {
             { new AdminAddedResponseHandler(), CommandsTranslator.ResponseToString(ResponseCommand.ADMIN_ADDED) },
-            { new GetTeamResponseHandler(), CommandsTranslator.ResponseToString(ResponseCommand.GET_TEAM) }
+            { new GetTeamResponseHandler(), CommandsTranslator.ResponseToString(ResponseCommand.GET_TEAM) },
+            { new GameStartedResponseHandler(), CommandsTranslator.ResponseToString(ResponseCommand.GAME_STARTED) }
         };
         
 
