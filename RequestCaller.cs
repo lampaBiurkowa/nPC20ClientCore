@@ -12,9 +12,9 @@ namespace CapsBallCore
             Sender.Send(package.GetRawData());
         }
 
-        public static void RequestJoinTeam(string teamName)
+        public static void RequestJoinTeam(TeamType teamType)
         {
-            List<string> parameters = new List<string>(new string[] { teamName });
+            List<string> parameters = new List<string>(new string[] { teamType.ToString() });
             RequestPackage package = new RequestPackage(RequestCommand.JOIN_TEAM, parameters);
             Sender.Send(package.GetRawData());
         }

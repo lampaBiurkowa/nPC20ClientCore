@@ -18,9 +18,7 @@ namespace CapsBallCore
 
         public ResponsePackage(Package package)
         {
-            System.IO.File.WriteAllText("jd.txt", package.MessageContent);
             string[] basicComponents = package.MessageContent.Split(COMMAND_SPLIT_CHAR);
-            System.IO.File.WriteAllText("jd2.txt", basicComponents[0]);
             handler = ResponseResolver.StringToHandler(basicComponents[0]);
         
             if (basicComponents.Length == 1)
