@@ -1,4 +1,5 @@
 ﻿using CapsBallShared;
+using GeoLib;
 using nDSSH;
 using System.Collections.Generic;
 
@@ -6,11 +7,7 @@ namespace CapsBallCore
 {
     public static class RequestCaller
     {
-        public static void RequestJoinGame()
-        {
-            RequestPackage package = new RequestPackage(RequestCommand.JOIN_GAME);
-            Sender.Send(package.GetRawData());
-        }
+        public static void RequestJoinGame() => Sender.Send(new RequestPackage(RequestCommand.JOIN_GAME).GetRawData());
 
         public static void RequestJoinTeam(TeamType teamType)
         {
@@ -36,6 +33,13 @@ namespace CapsBallCore
         public static void RequestStartGame()
         {
             RequestPackage package = new RequestPackage(RequestCommand.START_GAME);
+            Sender.Send(package.GetRawData());
+        }
+
+        public static void RequestSendOwnData(Vector2 position, Vector2 velocity)
+        {
+            List<string> parameters = new List<string>(new string[] { position.X.ToString(), position.Y.ToString(), velocity.X.ToString(), velocity.Y.ToString() });
+            RequestPackage package = new RequestPackage(RequestCommand.SEND_FOOTBALER, parameters);
             Sender.Send(package.GetRawData());
         }
     }

@@ -1,16 +1,17 @@
 ﻿using CapsBallShared;
+using Newtonsoft.Json;
 using System;
 
 namespace CapsBallCore
 {
     public class JoinedTeamEventArgs
     {
-        public string JoinerNick { get; private set; }
+        public Player Joiner { get; private set; }
         public TeamType TeamType { get; private set; }
 
-        public JoinedTeamEventArgs(string joinerNick, TeamType teamType)
+        public JoinedTeamEventArgs(Player joiner, TeamType teamType)
         {
-            JoinerNick = joinerNick;
+            Joiner = joiner;
             TeamType = teamType;
         }
     }
@@ -23,9 +24,9 @@ namespace CapsBallCore
 
         public void Handle(ResponsePackage responsePackage)
         {
-            string joinerNick = responsePackage.Parameters[0];
+            Player joiner = JsonConvert.DeserializeObject<Player>(responsePackage.Parameters[0]);
             TeamType teamType = (TeamType)Enum.Parse(typeof(TeamType), responsePackage.Parameters[1]);
-            JoinedTeam?.Invoke(this, new JoinedTeamEventArgs(joinerNick, teamType));
+            JoinedTeam?.Invoke(this, new JoinedTeamEventArgs(joiner, teamType));
         }
     }
 }

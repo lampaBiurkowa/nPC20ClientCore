@@ -40,9 +40,20 @@ namespace CapsBallCore
                 System.Console.WriteLine(players[i].PublicAccount.Points);
             }
 
-            if (CachedData.CurrentTeam == null && players.Any(p => p.PublicAccount.Nick == CachedData.Nick))
-                CachedData.CurrentTeam = new Team(type, name, players);
-
+            if (players.Any(p => p.PublicAccount.Nick == CachedData.Nick)) //TODO inline?
+            {
+                if (CachedData.CurrentTeam == null)
+                    CachedData.CurrentTeam = new Team(type, name, players);
+                else
+                    CachedData.CurrentTeam.Players = players;
+            }
+            else
+            {
+                if (CachedData.OpponentTeam == null)
+                    CachedData.OpponentTeam = new Team(type, name, players);
+                else
+                    CachedData.OpponentTeam.Players = players;
+            }
             TeamGot?.Invoke(new Team(type, name, players));
         }
     }
