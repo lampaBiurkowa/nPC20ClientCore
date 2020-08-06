@@ -27,6 +27,7 @@ namespace CapsBallCore
 
         void onReceived(Package package)
         {
+            System.Console.WriteLine(package.MessageContent);
             ResponsePackage responsePackage = new ResponsePackage(package);
             responsePackage.TryHandle();
         }

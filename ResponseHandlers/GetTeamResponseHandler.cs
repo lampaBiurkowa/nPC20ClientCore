@@ -40,7 +40,11 @@ namespace CapsBallCore
                 System.Console.WriteLine(players[i].PublicAccount.Points);
             }
 
-            if (players.Any(p => p.PublicAccount.Nick == CachedData.Nick)) //TODO inline?
+            if (players.Any(p => p.PublicAccount.Nick == CachedData.Nick))
+                CachedData.CurrentTeam = new Team(type, name, players);
+            else
+                CachedData.OpponentTeam = new Team(type, name, players);
+            /*if (players.Any(p => p.PublicAccount.Nick == CachedData.Nick)) //TODO inline?
             {
                 if (CachedData.CurrentTeam == null)
                     CachedData.CurrentTeam = new Team(type, name, players);
@@ -53,7 +57,7 @@ namespace CapsBallCore
                     CachedData.OpponentTeam = new Team(type, name, players);
                 else
                     CachedData.OpponentTeam.Players = players;
-            }
+            }*/
             TeamGot?.Invoke(new Team(type, name, players));
         }
     }

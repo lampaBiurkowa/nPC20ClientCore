@@ -12,6 +12,6 @@
         public const string INPUT_LEFT = "ui_left";
         public const string INPUT_RIGHT = "ui_right";
 
-        public const int PACKAGES_PER_SECOND = 24;
+        public const int PACKAGES_PER_SECOND = 8;
     }
 }

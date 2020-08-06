@@ -25,8 +25,8 @@ namespace CapsBallCore
         public void Handle(ResponsePackage package)
         {
             string playerNick = package.Parameters[0];
-            Vector2 position = new Vector2(int.Parse(package.Parameters[1]), int.Parse(package.Parameters[2]));
-            Vector2 velocity = new Vector2(int.Parse(package.Parameters[3]), int.Parse(package.Parameters[4]));
+            Vector2 position = new Vector2(float.Parse(package.Parameters[1]), float.Parse(package.Parameters[2]));
+            Vector2 velocity = new Vector2(float.Parse(package.Parameters[3]), float.Parse(package.Parameters[4]));
 
             FootballerSent?.Invoke(this, new SendFootballerEventArgs(playerNick, position, velocity));
         }
