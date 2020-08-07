@@ -44,6 +44,7 @@ namespace CapsBallCore
                 CachedData.CurrentTeam = new Team(type, name, players);
             else
                 CachedData.OpponentTeam = new Team(type, name, players);
+            System.Console.WriteLine($"no bez {CachedData.CurrentTeam.Players.Count}");
             /*if (players.Any(p => p.PublicAccount.Nick == CachedData.Nick)) //TODO inline?
             {
                 if (CachedData.CurrentTeam == null)
