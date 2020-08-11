@@ -4,10 +4,10 @@
     {
         const string RESOURCES_PATH = "Resources";
 
-        public const float DEFAULT_PLAYER_RADIUS = 25f;
-        public const float DEFAULT_MASS = 2;
-        public const float DEFAULT_SPEED = 1;
-        public const float DEFAULT_POWER = 2;
+        public static float DEFAULT_PLAYER_RADIUS = 25f;
+        public static float DEFAULT_BOUNCE = 2;
+        public static float DEFAULT_SPEED = 1;
+        public static float DEFAULT_POWER = 2;
 
         public const string BLUE_TEAM_TEXTURE_PATH = RESOURCES_PATH + "/blueTeam.png";
         public const string RED_TEAM_TEXTURE_PATH = RESOURCES_PATH + "/redTeam.png";

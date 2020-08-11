@@ -15,7 +15,7 @@ namespace CapsBallCore
 
         public StadiumData(string stadiumName)
         {
-            string[] data = File.ReadAllLines(getStadiumPath(stadiumName);
+            string[] data = File.ReadAllLines(getStadiumPath(stadiumName));
             bool stadiumDataLoaded = false;
 
             foreach (string line in data)
