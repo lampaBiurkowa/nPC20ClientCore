@@ -7,17 +7,19 @@ namespace CapsBallCore
     {
         public float Bounce { get; set; }
         public CollisionMask CollisionMask { get; set; }
+        public string Name { get; set; }
         public ShapeStruct ShapeData { get; set; }
         public ShapeType ShapeType { get; set; }
         public string TexturePath { get; set; }
 
-        public ItemData(string line)
+        public ItemData(string name, string line)
         {
             string[] data = line.Split(StadConstants.SEPARATOR_CHAR);
             ShapeType = data[0][0] == StadConstants.CIRCLE_ID ? ShapeType.CIRCLE : ShapeType.RECTANGLE;
             Bounce = float.Parse(data[1]);
             CollisionMask = getCollisionMaskFromChar(data[2][0]);
-            TexturePath = $"{StadConstants.RESOURCES_PATH}{data[3]}";
+            Name = name;
+            TexturePath = $"{StadConstants.STADIUMS_PATH}/{name}/{StadConstants.RESOURCES_PATH}{data[3]}";
 
             float x = float.Parse(data[4]);
             float y = float.Parse(data[5]);

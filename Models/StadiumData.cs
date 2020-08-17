@@ -11,7 +11,7 @@ namespace CapsBallCore
         public float Power { get; set; }
         public float Size { get; set; }
         public float Speed { get; set; }
-        public List<ItemData> Items { get; set; }
+        public List<ItemData> Items { get; set; } = new List<ItemData>();
 
         public StadiumData(string stadiumName)
         {
@@ -29,12 +29,12 @@ namespace CapsBallCore
                     stadiumDataLoaded = true;
                 }
                 else
-                    Items.Add(new ItemData(line));
+                    Items.Add(new ItemData(stadiumName, line));
             }
         }
 
         string getStadiumPath(string stadiumName) => 
-            $"{StadConstants.STADIUMS_PATH}{stadiumName}{StadConstants.STAD_FILE_EXTENSION}";
+            $"{StadConstants.STADIUMS_PATH}{stadiumName}/{StadConstants.STAD_FILE_NAME}";
 
         void loadStadiumData(string line)
         {

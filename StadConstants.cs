@@ -14,6 +14,6 @@
 
         public const string RESOURCES_PATH = "res/";
         public const string STADIUMS_PATH = "Resources/Stadiums/";
-        public const string STAD_FILE_EXTENSION = ".stad";
+        public const string STAD_FILE_NAME = "stadium.stad";
     }
 }
