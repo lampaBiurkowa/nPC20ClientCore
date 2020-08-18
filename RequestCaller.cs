@@ -36,9 +36,9 @@ namespace CapsBallCore
             Sender.Send(package.GetRawData());
         }
 
-        public static void RequestSendOwnData(Vector2 position, Vector2 velocity)
+        public static void RequestSendOwnData(Vector2 position, float rotation, Vector2 velocity)
         {
-            List<string> parameters = new List<string>(new string[] { position.X.ToString(), position.Y.ToString(), velocity.X.ToString(), velocity.Y.ToString() });
+            List<string> parameters = new List<string>(new string[] { position.X.ToString(), position.Y.ToString(), rotation.ToString(), velocity.X.ToString(), velocity.Y.ToString() });
             RequestPackage package = new RequestPackage(RequestCommand.SEND_FOOTBALER, parameters);
             Sender.Send(package.GetRawData());
         }
