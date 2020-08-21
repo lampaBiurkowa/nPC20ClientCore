@@ -1,8 +1,8 @@
 ﻿using CapsBallShared;
 using GeoLib;
 using nDSSH;
+using Newtonsoft.Json;
 using System.Collections.Generic;
-using System.Text.Json;
 
 namespace CapsBallCore
 {
@@ -33,7 +33,7 @@ namespace CapsBallCore
 
         public static void RequestStartGame(StadiumCoreData stadiumCoreData)
         {
-            List<string> parameters = new List<string>(new string[] { JsonSerializer.Serialize(stadiumCoreData) });
+            List<string> parameters = new List<string>(new string[] { JsonConvert.SerializeObject(stadiumCoreData) });
             RequestPackage package = new RequestPackage(RequestCommand.START_GAME, parameters);
             Sender.Send(package.GetRawData());
         }

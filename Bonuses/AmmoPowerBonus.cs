@@ -2,7 +2,7 @@
 {
     public class AmmoPowerBonus : IBonus
     {
-        public string TexturePath => "Resources/Bonuses/ammoPowerBonus";
+        public string TexturePath => "Resources/Bonuses/ammoPower";
 
         public void Activate()
         {
