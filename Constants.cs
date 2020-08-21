@@ -4,6 +4,8 @@
     {
         const string RESOURCES_PATH = "Resources";
 
+        public static float BONUS_RADIUS = 20;
+
         public static float DEFAULT_PLAYER_RADIUS = 25;
         public static float DEFAULT_BOUNCE = 2;
         public static float DEFAULT_SPEED = 1;

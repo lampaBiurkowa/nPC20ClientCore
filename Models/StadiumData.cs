@@ -8,6 +8,8 @@ namespace CapsBallCore
         public int Width { get; set; }
         public int Height { get; set; }
         public float Bounce { get; set; }
+        public int BonusChangeSeconds { get; set; }
+        public int BonusesCount { get; set; }
         public float Power { get; set; }
         public float Size { get; set; }
         public float Speed { get; set; }
@@ -45,6 +47,8 @@ namespace CapsBallCore
             Power = float.Parse(data[3]);
             Size = float.Parse(data[4]);
             Speed = float.Parse(data[5]);
+            BonusChangeSeconds = int.Parse(data[6]);
+            BonusesCount = int.Parse(data[7]);
         }
     }
 }

@@ -11,6 +11,7 @@ namespace CapsBallCore
         public static Team CurrentTeam { get; set; } = new Team();
         public static Team OpponentTeam { get; set; } = new Team();
         public static ServerLoop ServerLoop { get; set; }
+        public static StadiumData StadiumData { get; set; }
 
         public static TeamType DetermineTeamType(Player player)
         {

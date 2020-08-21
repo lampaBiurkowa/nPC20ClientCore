@@ -2,6 +2,7 @@
 using GeoLib;
 using nDSSH;
 using System.Collections.Generic;
+using System.Text.Json;
 
 namespace CapsBallCore
 {
@@ -30,9 +31,10 @@ namespace CapsBallCore
             Sender.Send(package.GetRawData());
         }
 
-        public static void RequestStartGame()
+        public static void RequestStartGame(StadiumCoreData stadiumCoreData)
         {
-            RequestPackage package = new RequestPackage(RequestCommand.START_GAME);
+            List<string> parameters = new List<string>(new string[] { JsonSerializer.Serialize(stadiumCoreData) });
+            RequestPackage package = new RequestPackage(RequestCommand.START_GAME, parameters);
             Sender.Send(package.GetRawData());
         }
 
