@@ -27,7 +27,7 @@ namespace CapsBallCore
 
         void onReceived(Package package)
         {
-            System.Console.WriteLine(package.MessageContent);
+            System.Console.WriteLine($"dostalismy se {package.MessageContent}");
             ResponsePackage responsePackage = new ResponsePackage(package);
             responsePackage.TryHandle();
         }

@@ -2,7 +2,7 @@
 {
     public class ExtraMassBonus : IBonus
     {
-        public string TexturePath => "Resources/Bonuses/extraMass";
+        public string TexturePath => "Resources/Bonuses/extraMass.png";
 
         public void Activate()
         {

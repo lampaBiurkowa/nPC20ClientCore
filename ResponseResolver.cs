@@ -21,7 +21,6 @@ namespace CapsBallCore
         
 
         public static string HandlerToString(IResponseHandler handler) =>
-            //resolver.Where(p => p.Key.GetType() == handler.GetType()).FirstOrDefault().Value;
             resolver.ContainsKey(handler) ? resolver[handler] : UNDEFINED_ID;
 
         public static IResponseHandler StringToHandler(string command) =>

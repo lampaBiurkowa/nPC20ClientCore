@@ -2,7 +2,7 @@
 {
     public class GunLongBonus : IBonus
     {
-        public string TexturePath => "Resources/Bonuses/gunLong";
+        public string TexturePath => "Resources/Bonuses/gunLong.png";
 
         public void Activate()
         {

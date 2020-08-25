@@ -26,7 +26,7 @@ namespace CapsBallCore
         }
 
         public static BonusType BonusClassToBonusType(IBonus bonus) =>
-            resolver.ContainsKey(bonus) ? resolver[bonus] : BonusType.UNDEFINED;
+            resolver.Where(p => p.Key.GetType() == bonus.GetType()).FirstOrDefault().Value;
 
         public static IBonus BonusTypeToBonusClass(BonusType bonusType) =>
             resolver.Where(p => p.Value == bonusType).FirstOrDefault().Key;
