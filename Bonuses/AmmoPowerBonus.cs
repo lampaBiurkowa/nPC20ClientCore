@@ -1,12 +1,11 @@
 ﻿namespace CapsBallCore
 {
-    public class AmmoPowerBonus : IBonus
+    public class AmmoPowerBonus : AmmoBonus, IBonus
     {
         public string TexturePath => "Resources/Bonuses/ammoPower.png";
 
-        public void Activate()
-        {
-            throw new System.NotImplementedException();
-        }
+        public AmmoPowerBonus() : base() { }
+
+        public void Activate() => RemainigItems--;
     }
 }

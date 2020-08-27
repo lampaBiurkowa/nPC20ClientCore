@@ -1,4 +1,7 @@
-﻿namespace CapsBallCore
+﻿using System;
+using System.Threading;
+
+namespace CapsBallCore
 {
     public class ExtraPowerBonus : IBonus
     {
@@ -6,7 +9,15 @@
 
         public void Activate()
         {
-            throw new System.NotImplementedException();
+            BonusStates.ExtraPowerEnabled = true;
+            Thread endingThread = new Thread(waitAndHandleDisablingBonus);
+            endingThread.Start();
+        }
+
+        void waitAndHandleDisablingBonus()
+        {
+            Thread.Sleep(Constants.EXTRA_SKILL_DURATION_SECONDS);
+            BonusStates.ExtraPowerEnabled = false;
         }
     }
 }

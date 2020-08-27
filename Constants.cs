@@ -8,6 +8,7 @@
         public static float DEFAULT_BOUNCE = 2;
         public static float DEFAULT_SPEED = 1;
         public static float DEFAULT_POWER = 1;
+        public const int EXTRA_SKILL_BONUS_FACTOR = 2;
 
         public const string BLUE_TEAM_TEXTURE_PATH = RESOURCES_PATH + "/blueTeam.png";
         public const string RED_TEAM_TEXTURE_PATH = RESOURCES_PATH + "/redTeam.png";
@@ -16,7 +17,9 @@
         public const string INPUT_LEFT = "ui_left";
         public const string INPUT_RIGHT = "ui_right";
         public const string INPUT_POWER = "power";
+        public const string INPUT_BONUS = "bonus_activate";
 
         public const int PACKAGES_PER_SECOND = 24;
+        public const int EXTRA_SKILL_DURATION_SECONDS = 10;
     }
 }
