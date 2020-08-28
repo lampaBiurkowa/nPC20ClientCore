@@ -17,9 +17,11 @@
         public const string INPUT_LEFT = "ui_left";
         public const string INPUT_RIGHT = "ui_right";
         public const string INPUT_POWER = "power";
+        public const string INPUT_SHOOT = "shoot";
         public const string INPUT_BONUS = "bonus_activate";
 
         public const int PACKAGES_PER_SECOND = 24;
         public const int EXTRA_SKILL_DURATION_SECONDS = 10;
+        public const int BULLET_FLY_DURATION_SECONDS = 10;
     }
 }

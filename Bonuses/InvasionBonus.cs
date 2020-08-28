@@ -2,7 +2,7 @@
 {
     public class InvasionBonus : IBonus
     {
-        public string TexturePath => "Resources/Bonuses/inavsion.png";
+        public string TexturePath => "Resources/Bonuses/invasion.png";
 
         public void Activate()
         {

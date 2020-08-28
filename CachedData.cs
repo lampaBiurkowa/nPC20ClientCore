@@ -14,7 +14,7 @@ namespace CapsBallCore
         public static ServerLoop ServerLoop { get; set; }
         public static StadiumData StadiumData { get; set; }
 
-        public static IBonus Ammo { get; set; }
+        public static AmmoBonus Ammo { get; set; }
         public static IBonus Bonus { get; set; }
         public static IBonus Weapon { get; set; }
 
