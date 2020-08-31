@@ -20,7 +20,7 @@ namespace CapsBallCore
 
         void waitAndHandleDisablingBonus()
         {
-            Thread.Sleep(Constants.EXTRA_SKILL_DURATION_SECONDS);
+            Thread.Sleep(Constants.EXTRA_SKILL_DURATION_SECONDS * 1000);
             BonusStates.ExtraMassEnabled = false;
             ExtraMassEnded?.Invoke();
         }
