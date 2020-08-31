@@ -1,5 +1,4 @@
 ﻿using CapsBallShared;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace CapsBallCore
@@ -15,7 +14,7 @@ namespace CapsBallCore
         public static StadiumData StadiumData { get; set; }
 
         public static AmmoBonus Ammo { get; set; }
-        public static IBonus Bonus { get; set; }
+        public static IBonus ExtraPower { get; set; }
         public static IBonus Weapon { get; set; }
 
         public static TeamType DetermineTeamType(Player player)

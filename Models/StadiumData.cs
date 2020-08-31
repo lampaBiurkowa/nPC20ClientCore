@@ -7,12 +7,9 @@ namespace CapsBallCore
     {
         public int Width { get; set; }
         public int Height { get; set; }
-        public float Bounce { get; set; }
         public int BonusChangeSeconds { get; set; }
         public int BonusesCount { get; set; }
-        public float Power { get; set; }
-        public float Size { get; set; }
-        public float Speed { get; set; }
+        public Environment Environment { get; set; }
         public List<ItemData> Items { get; set; } = new List<ItemData>();
 
         public StadiumData(string stadiumName)
@@ -43,12 +40,20 @@ namespace CapsBallCore
             string[] data = line.Split(StadConstants.SEPARATOR_CHAR);
             Width = int.Parse(data[0]);
             Height = int.Parse(data[1]);
-            Bounce = float.Parse(data[2]);
-            Power = float.Parse(data[3]);
-            Size = float.Parse(data[4]);
-            Speed = float.Parse(data[5]);
+            float mass = float.Parse(data[2]);
+            float power = float.Parse(data[3]);
+            float playerRadius = float.Parse(data[4]);
+            float speed = float.Parse(data[5]);
             BonusChangeSeconds = int.Parse(data[6]);
             BonusesCount = int.Parse(data[7]);
+
+            Environment = new Environment()
+            {
+                Mass = mass,
+                Power = power,
+                PlayerRadius = playerRadius,
+                Speed = speed
+            };
         }
     }
 }
