@@ -6,6 +6,7 @@ namespace CapsBallCore
 {
     public static class CheatResolver
     {
+        const string BALL_MASS_CHEAT_ID = "bmass";
         const string GLOBAL_MASS_CHEAT_ID = "gmass";
         const string GLOBAL_POWER_CHEAT_ID = "gpower";
         const string GLOBAL_SIZE_CHEAT_ID = "gsize";
@@ -19,6 +20,7 @@ namespace CapsBallCore
 
         static Dictionary<ICheat, string> resolver = new Dictionary<ICheat, string>()
         {
+            { new BallMassCheat(), BALL_MASS_CHEAT_ID },
             { new GlobalMassCheat(), GLOBAL_MASS_CHEAT_ID },
             { new GlobalPowerCheat(), GLOBAL_POWER_CHEAT_ID },
             { new GlobalSizeCheat(), GLOBAL_SIZE_CHEAT_ID },

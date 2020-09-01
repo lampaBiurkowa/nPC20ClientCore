@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 
 namespace CapsBallCore
@@ -40,16 +41,18 @@ namespace CapsBallCore
             string[] data = line.Split(StadConstants.SEPARATOR_CHAR);
             Width = int.Parse(data[0]);
             Height = int.Parse(data[1]);
-            float mass = float.Parse(data[2]);
-            float power = float.Parse(data[3]);
-            float playerRadius = float.Parse(data[4]);
-            float speed = float.Parse(data[5]);
+            float footballerMass = float.Parse(data[2], CultureInfo.InvariantCulture);
+            float power = float.Parse(data[3], CultureInfo.InvariantCulture);
+            float playerRadius = float.Parse(data[4], CultureInfo.InvariantCulture);
+            float speed = float.Parse(data[5], CultureInfo.InvariantCulture);
             BonusChangeSeconds = int.Parse(data[6]);
             BonusesCount = int.Parse(data[7]);
+            float ballMass = float.Parse(data[8], CultureInfo.InvariantCulture);
 
             Environment = new Environment()
             {
-                Mass = mass,
+                BallMass = ballMass,
+                FootballerMass = footballerMass,
                 Power = power,
                 PlayerRadius = playerRadius,
                 Speed = speed

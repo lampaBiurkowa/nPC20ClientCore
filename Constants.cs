@@ -5,10 +5,12 @@
         const string RESOURCES_PATH = "Resources";
 
         public const float DEFAULT_PLAYER_RADIUS = 25;
+        public const float BALL_RADIUS = 20;
         public const int EXTRA_SKILL_BONUS_FACTOR = 2;
 
         public const string BLUE_TEAM_TEXTURE_PATH = RESOURCES_PATH + "/blueTeam.png";
         public const string RED_TEAM_TEXTURE_PATH = RESOURCES_PATH + "/redTeam.png";
+        public const string INPUT_CHEAT = "cheat";
         public const string INPUT_MOVE_UP = "move_up";
         public const string INPUT_MOVE_DOWN = "move_down";
         public const string INPUT_MOVE_LEFT = "move_left";
@@ -18,6 +20,8 @@
         public const string INPUT_POWER = "power";
         public const string INPUT_SHOOT = "shoot";
         public const string INPUT_BONUS = "bonus_activate";
+
+        public const char CHEAT_SEPARATOR = ' ';
 
         public const int PACKAGES_PER_SECOND = 24;
         public const int EXTRA_SKILL_DURATION_SECONDS = 10;
