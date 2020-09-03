@@ -19,7 +19,6 @@ namespace CapsBallCore
         public int ParamsRequiredCount { get; } = 1;
         public void Handle(ResponsePackage package)
         {
-            System.Console.WriteLine("HEEEEEEJ?");
             GameState gameState = JsonConvert.DeserializeObject<GameState>(package.Parameters[0]);
             CachedData.GameState = gameState;
             GameStateSent?.Invoke(this, new SendGameStateEventArgs(gameState));

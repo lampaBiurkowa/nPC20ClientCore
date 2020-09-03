@@ -38,10 +38,24 @@ namespace CapsBallCore
             Sender.Send(package.GetRawData());
         }
 
-        public static void RequestSendOwnData(Vector2 position, float rotation, Vector2 velocity, bool invisible, bool wallBreaker)
+        public static void RequestSendOwnData(FootballerState footballerState)
         {
-            List<string> parameters = new List<string>(new string[] { position.X.ToString(), position.Y.ToString(), rotation.ToString(), velocity.X.ToString(), velocity.Y.ToString(), invisible.ToString(), wallBreaker.ToString() });
-            RequestPackage package = new RequestPackage(RequestCommand.SEND_FOOTBALER, parameters);
+            List<string> parameters = new List<string>(new string[] { JsonConvert.SerializeObject(footballerState) });
+            RequestPackage package = new RequestPackage(RequestCommand.SEND_FOOTBALLER_STATE, parameters);
+            Sender.Send(package.GetRawData());
+        }
+
+        public static void RequestApplyImpulse(string nick, Vector2 impulse)
+        {
+            List<string> parameters = new List<string>(new string[] { nick, impulse.X.ToString(), impulse.Y.ToString() });
+            RequestPackage package = new RequestPackage(RequestCommand.APPLY_IMPULSE, parameters);
+            Sender.Send(package.GetRawData());
+        }
+
+        //TODO think 
+        public static void Request(RequestCommand command, List<string> parameters)
+        {
+            RequestPackage package = new RequestPackage(command, parameters);
             Sender.Send(package.GetRawData());
         }
     }
