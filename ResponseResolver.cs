@@ -16,7 +16,7 @@ namespace CapsBallCore
             { new GameStartedResponseHandler(), CommandsTranslator.ResponseToString(ResponseCommand.GAME_STARTED) },
             { new ImpulseAppliedResponseHandler(), CommandsTranslator.ResponseToString(ResponseCommand.IMPULSE_APPLIED) },
             { new JoinedTeamResponseHandler(), CommandsTranslator.ResponseToString(ResponseCommand.JOINED_TEAM) },
-            { new SendFootballerResponseHandler(), CommandsTranslator.ResponseToString(ResponseCommand.SEND_FOOTBALLER_STATE) },
+            { new SendFootballerStateResponseHandler(), CommandsTranslator.ResponseToString(ResponseCommand.SEND_FOOTBALLER_STATE) },
             { new SendGameStateResponseHandler(), CommandsTranslator.ResponseToString(ResponseCommand.SEND_GAME_STATE) }        };
         
 

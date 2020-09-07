@@ -16,7 +16,7 @@ namespace CapsBallCore
     {
         public static event EventHandler<SendGameStateEventArgs> GameStateSent;
 
-        public int ParamsRequiredCount { get; } = 1;
+        public int ParamsRequiredCount => 1;
         public void Handle(ResponsePackage package)
         {
             GameState gameState = JsonConvert.DeserializeObject<GameState>(package.Parameters[0]);

@@ -38,6 +38,13 @@ namespace CapsBallCore
             Sender.Send(package.GetRawData());
         }
 
+        public static void RequestSendBallData(BallState ballState)
+        {
+            List<string> parameters = new List<string>(new string[] { JsonConvert.SerializeObject(ballState) });
+            RequestPackage package = new RequestPackage(RequestCommand.SEND_BALL_STATE, parameters);
+            Sender.Send(package.GetRawData());
+        }
+
         public static void RequestSendOwnData(FootballerState footballerState)
         {
             List<string> parameters = new List<string>(new string[] { JsonConvert.SerializeObject(footballerState) });
