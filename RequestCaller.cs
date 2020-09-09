@@ -8,6 +8,13 @@ namespace CapsBallCore
 {
     public static class RequestCaller
     {
+        public static void RequestBulletTriggered(BulletState bulletState)
+        {
+            List<string> parameters = new List<string>(new string[] { JsonConvert.SerializeObject(bulletState) });
+            RequestPackage package = new RequestPackage(RequestCommand.BULLET_TRIGGERED, parameters);
+            Sender.Send(package.GetRawData());
+        }
+
         public static void RequestJoinGame() => Sender.Send(new RequestPackage(RequestCommand.JOIN_GAME).GetRawData());
 
         public static void RequestJoinTeam(TeamType teamType)
@@ -38,7 +45,7 @@ namespace CapsBallCore
             Sender.Send(package.GetRawData());
         }
 
-        public static void RequestSendBallData(BallState ballState)
+        public static void RequestSendBallData(MovementState ballState)
         {
             List<string> parameters = new List<string>(new string[] { JsonConvert.SerializeObject(ballState) });
             RequestPackage package = new RequestPackage(RequestCommand.SEND_BALL_STATE, parameters);

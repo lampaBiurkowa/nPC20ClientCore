@@ -1,13 +1,14 @@
-﻿using System;
+﻿using CapsBallShared;
+using System;
 
 namespace CapsBallCore
 {
     public abstract class AmmoBonus : IBonus
     {
-        public int RemainigItems { get; protected set; }
-
-        public string TexturePath { get; protected set; }
+        public abstract BonusType BonusType { get; }
         public string BulletTexturePath { get; protected set; }
+        public int RemainigItems { get; protected set; }
+        public string TexturePath { get; protected set; }
 
         const int CAPACITY_BIG = 10;
         const int CAPACITY_SMALL = 5;

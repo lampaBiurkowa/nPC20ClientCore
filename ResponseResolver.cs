@@ -12,12 +12,15 @@ namespace CapsBallCore
         {
             { new AdminAddedResponseHandler(), CommandsTranslator.ResponseToString(ResponseCommand.ADMIN_ADDED) },
             { new BonusAddedResponseHandler(), CommandsTranslator.ResponseToString(ResponseCommand.BONUS_ADDED) },
+            { new BulletTriggeredResponseHandler(), CommandsTranslator.ResponseToString(ResponseCommand.BULLET_TRIGGERED) },
             { new GetTeamResponseHandler(), CommandsTranslator.ResponseToString(ResponseCommand.GET_TEAM) },
             { new GameStartedResponseHandler(), CommandsTranslator.ResponseToString(ResponseCommand.GAME_STARTED) },
             { new ImpulseAppliedResponseHandler(), CommandsTranslator.ResponseToString(ResponseCommand.IMPULSE_APPLIED) },
             { new JoinedTeamResponseHandler(), CommandsTranslator.ResponseToString(ResponseCommand.JOINED_TEAM) },
+            { new SendBallStateResponseHandler(), CommandsTranslator.ResponseToString(ResponseCommand.SEND_BALL_STATE) },
             { new SendFootballerStateResponseHandler(), CommandsTranslator.ResponseToString(ResponseCommand.SEND_FOOTBALLER_STATE) },
-            { new SendGameStateResponseHandler(), CommandsTranslator.ResponseToString(ResponseCommand.SEND_GAME_STATE) }        };
+            { new SendGameStateResponseHandler(), CommandsTranslator.ResponseToString(ResponseCommand.SEND_GAME_STATE) }
+        };
         
 
         public static string HandlerToString(IResponseHandler handler) =>

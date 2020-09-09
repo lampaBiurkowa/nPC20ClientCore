@@ -52,7 +52,7 @@ namespace CapsBallCore
             Environment = new Environment()
             {
                 BallMass = ballMass,
-                FootballerMass = footballerMass,
+                FootballerBounce = footballerMass,
                 Power = power,
                 PlayerRadius = playerRadius,
                 Speed = speed

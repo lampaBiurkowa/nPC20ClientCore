@@ -1,5 +1,5 @@
-﻿using CapsBallCore;
-using GeoLib;
+﻿using GeoLib;
+using System.Globalization;
 
 namespace CapsBallCore
 {
@@ -16,15 +16,15 @@ namespace CapsBallCore
         {
             string[] data = line.Split(StadConstants.SEPARATOR_CHAR);
             ShapeType = data[0][0] == StadConstants.CIRCLE_ID ? ShapeType.CIRCLE : ShapeType.RECTANGLE;
-            Bounce = float.Parse(data[1]);
+            Bounce = float.Parse(data[1], CultureInfo.InvariantCulture);
             CollisionMask = getCollisionMaskFromChar(data[2][0]);
             Name = name;
             TexturePath = $"{StadConstants.STADIUMS_PATH}/{name}/{StadConstants.RESOURCES_PATH}{data[3]}";
 
-            float x = float.Parse(data[4]);
-            float y = float.Parse(data[5]);
-            float w = ShapeType == ShapeType.RECTANGLE ? float.Parse(data[6]) : float.Parse(data[6]) / 2f;
-            float h = ShapeType == ShapeType.RECTANGLE ? float.Parse(data[7]) : w;
+            float x = float.Parse(data[4], CultureInfo.InvariantCulture);
+            float y = float.Parse(data[5], CultureInfo.InvariantCulture);
+            float w = ShapeType == ShapeType.RECTANGLE ? float.Parse(data[6], CultureInfo.InvariantCulture) : float.Parse(data[6], CultureInfo.InvariantCulture) / 2f;
+            float h = ShapeType == ShapeType.RECTANGLE ? float.Parse(data[7], CultureInfo.InvariantCulture) : w;
             if (ShapeType == ShapeType.RECTANGLE)
                 ShapeData = new RectStruct(x, y, w, h);
             else
