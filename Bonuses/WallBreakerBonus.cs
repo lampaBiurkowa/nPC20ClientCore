@@ -8,6 +8,7 @@ namespace CapsBallCore
 
         public void Activate()
         {
+            System.Console.WriteLine("AKTIW U JEA EJTT");
             BonusStates.WallBreakerEnabled = true;
             Thread endingThread = new Thread(waitAndHandleDisablingBonus);
             endingThread.Start();
