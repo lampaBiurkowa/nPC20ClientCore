@@ -10,6 +10,7 @@
 
         public const string BLUE_TEAM_TEXTURE_PATH = RESOURCES_PATH + "/blueTeam.png";
         public const string RED_TEAM_TEXTURE_PATH = RESOURCES_PATH + "/redTeam.png";
+
         public const string INPUT_CHEAT = "cheat";
         public const string INPUT_MOVE_UP = "move_up";
         public const string INPUT_MOVE_DOWN = "move_down";

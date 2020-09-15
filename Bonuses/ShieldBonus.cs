@@ -4,9 +4,6 @@
     {
         public string TexturePath => "Resources/Bonuses/shield.png";
 
-        public void Activate()
-        {
-            throw new System.NotImplementedException();
-        }
+        public void Activate() => BonusStates.ShieldEnabled = true;
     }
 }
