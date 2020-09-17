@@ -7,6 +7,9 @@
 
         public const char CIRCLE_ID = 'C';
         public const char RECTANGLE_ID = 'R';
+        public const char TARGET_ID = '$';
+        public const char BLUE_TEAM_ID = 'B';
+        public const char RED_TEAM_ID = 'R';
 
         public const char BALL_COLLISION_ID = '1';
         public const char PLAYER_COLLISION_ID = '2';

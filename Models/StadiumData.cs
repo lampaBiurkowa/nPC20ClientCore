@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using CapsBallShared;
+using GeoLib;
+using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 
@@ -6,21 +8,22 @@ namespace CapsBallCore
 {
     public class StadiumData
     {
-        public int Width { get; set; }
-        public int Height { get; set; }
         public int BonusChangeSeconds { get; set; }
         public int BonusesCount { get; set; }
         public Environment Environment { get; set; }
         public List<ItemData> Items { get; set; } = new List<ItemData>();
+        public int Height { get; set; }
+        public List<TargetData> Targets { get; set; } = new List<TargetData>();
+        public int Width { get; set; }
 
         public StadiumData(string stadiumName)
         {
             string[] data = File.ReadAllLines(getStadiumPath(stadiumName));
             bool stadiumDataLoaded = false;
 
-            foreach (string line in data)
+            foreach (string line in data) //TODO trim
             {
-                if (line.Length > 0 && line[0] == StadConstants.COMMENT_CHAR)
+                if (line.Length > 0 && line[0] == StadConstants.COMMENT_CHAR || string.IsNullOrWhiteSpace(line))
                     continue;
 
                 if (!stadiumDataLoaded)
@@ -28,12 +31,14 @@ namespace CapsBallCore
                     loadStadiumData(line);
                     stadiumDataLoaded = true;
                 }
+                else if (line[0] == StadConstants.TARGET_ID)
+                    loadTargetData(line);
                 else
                     Items.Add(new ItemData(stadiumName, line));
             }
         }
 
-        string getStadiumPath(string stadiumName) => 
+        string getStadiumPath(string stadiumName) =>
             $"{StadConstants.STADIUMS_PATH}{stadiumName}/{StadConstants.STAD_FILE_NAME}";
 
         void loadStadiumData(string line)
@@ -57,6 +62,19 @@ namespace CapsBallCore
                 PlayerRadius = playerRadius,
                 Speed = speed
             };
+        }
+
+        void loadTargetData(string data)
+        {
+            data = data.Substring(StadConstants.TARGET_ID.ToString().Length);
+
+            string[] components = data.Split(StadConstants.SEPARATOR_CHAR);
+            float x = float.Parse(components[0], CultureInfo.InvariantCulture);
+            float y = float.Parse(components[1], CultureInfo.InvariantCulture);
+            float w = float.Parse(components[2], CultureInfo.InvariantCulture);
+            float h = float.Parse(components[3], CultureInfo.InvariantCulture);
+            TeamType owner = components[4][0] == StadConstants.BLUE_TEAM_ID ? TeamType.BLUE : TeamType.RED;
+            Targets.Add(new TargetData(new RectStruct(x, y, w, h), owner));
         }
     }
 }

@@ -7,9 +7,6 @@ namespace CapsBallCore
     {
         public string TexturePath => "Resources/Bonuses/extraSpeed.png";
 
-        public static event Action ExtraSpeedStarted;
-        public static event Action ExtraSpeedEnded;
-
         public void Activate()
         {
             BonusStates.ExtraSpeedEnabled = true;
