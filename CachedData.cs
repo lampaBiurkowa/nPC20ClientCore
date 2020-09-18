@@ -15,7 +15,7 @@ namespace CapsBallCore
 
         public static AmmoBonus Ammo { get; set; }
         public static IBonus ExtraPower { get; set; }
-        public static IBonus Weapon { get; set; }
+        public static IWeapon Weapon { get; set; }
 
         public static TeamType DetermineTeamType(Player player)
         {

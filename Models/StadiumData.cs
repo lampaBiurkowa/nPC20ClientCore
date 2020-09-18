@@ -8,6 +8,8 @@ namespace CapsBallCore
 {
     public class StadiumData
     {
+        public string BackgroundPath { get; set; }
+        public Vector2 BallDefaultPosition { get; set; } = new Vector2();
         public int BonusChangeSeconds { get; set; }
         public int BonusesCount { get; set; }
         public Environment Environment { get; set; }
@@ -28,7 +30,7 @@ namespace CapsBallCore
 
                 if (!stadiumDataLoaded)
                 {
-                    loadStadiumData(line);
+                    loadStadiumData(stadiumName, line);
                     stadiumDataLoaded = true;
                 }
                 else if (line[0] == StadConstants.TARGET_ID)
@@ -41,7 +43,7 @@ namespace CapsBallCore
         string getStadiumPath(string stadiumName) =>
             $"{StadConstants.STADIUMS_PATH}{stadiumName}/{StadConstants.STAD_FILE_NAME}";
 
-        void loadStadiumData(string line)
+        void loadStadiumData(string name, string line)
         {
             string[] data = line.Split(StadConstants.SEPARATOR_CHAR);
             Width = int.Parse(data[0]);
@@ -53,6 +55,10 @@ namespace CapsBallCore
             BonusChangeSeconds = int.Parse(data[6]);
             BonusesCount = int.Parse(data[7]);
             float ballMass = float.Parse(data[8], CultureInfo.InvariantCulture);
+            float ballX = float.Parse(data[9], CultureInfo.InvariantCulture);
+            float ballY = float.Parse(data[10], CultureInfo.InvariantCulture);
+            BallDefaultPosition = new Vector2(ballX, ballY);
+            BackgroundPath = $"{StadConstants.STADIUMS_PATH}/{name}/{StadConstants.RESOURCES_PATH}/{data[11]}";
 
             Environment = new Environment()
             {
