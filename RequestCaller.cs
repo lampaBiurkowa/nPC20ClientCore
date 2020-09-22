@@ -52,6 +52,13 @@ namespace CapsBallCore
             Sender.Send(package.GetRawData());
         }
 
+        public static void RequestSendBonusData(BonusItemData bonusData, string receiverNick)
+        {
+            List<string> parameters = new List<string>(new string[] { JsonConvert.SerializeObject(bonusData), receiverNick });
+            RequestPackage package = new RequestPackage(RequestCommand.SEND_BONUS_DATA, parameters);
+            Sender.Send(package.GetRawData());
+        }
+
         public static void RequestSendGameState(GameState gameState)
         {
             List<string> parameters = new List<string>(new string[] { JsonConvert.SerializeObject(gameState) });

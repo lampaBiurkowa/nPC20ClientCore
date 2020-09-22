@@ -13,12 +13,14 @@ namespace CapsBallCore
         const int CAPACITY_BIG = 10;
         const int CAPACITY_SMALL = 5;
 
-        public AmmoBonus()
+        public AmmoBonus() => Renew();
+
+        public void Activate() => RemainigItemsCount--;
+
+        public void Renew()
         {
             Random random = new Random();
             RemainigItemsCount = random.Next(0, 2) == 1 ? CAPACITY_BIG : CAPACITY_SMALL;
         }
-
-        public void Activate() => RemainigItemsCount--;
     }
 }

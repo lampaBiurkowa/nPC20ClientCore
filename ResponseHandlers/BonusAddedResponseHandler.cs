@@ -1,32 +1,19 @@
 ﻿using CapsBallShared;
-using GeoLib;
+using Newtonsoft.Json;
 using System;
 
 namespace CapsBallCore
 {
-    public class BonusAddedEventArgs
-    {
-        public BonusType Bonus { get; private set; }
-        public Vector2 Position { get; private set; }
-
-        public BonusAddedEventArgs(BonusType bonus, Vector2 position)
-        {
-            Bonus = bonus;
-            Position = position;
-        }
-    }
-
     public class BonusAddedResponseHandler : IResponseHandler
     {
-        public int ParamsRequiredCount => 2;
+        public int ParamsRequiredCount => 1;
 
-        public static event EventHandler<BonusAddedEventArgs> BonusAdded;
+        public static event EventHandler<BonusItemData> BonusAdded;
 
-        public void Handle(ResponsePackage responsePackage)
+        public void Handle(ResponsePackage package)
         {
-            BonusType bonus = (BonusType)Enum.Parse(typeof(BonusType), responsePackage.Parameters[0]);
-            Vector2 position = new Vector2(int.Parse(responsePackage.Parameters[1]), int.Parse(responsePackage.Parameters[2]));
-            BonusAdded?.Invoke(this, new BonusAddedEventArgs(bonus, position));
+            BonusItemData bonusData = JsonConvert.DeserializeObject<BonusItemData>(package.Parameters[0]);
+            BonusAdded?.Invoke(this, bonusData);
         }
     }
 }

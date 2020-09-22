@@ -22,6 +22,8 @@
         public const string INPUT_SHOOT = "shoot";
         public const string INPUT_BONUS = "bonus_activate";
 
+        public const string BONUSES_GROUP = "bonusesGroup";
+
         public const char CHEAT_SEPARATOR = ' ';
 
         public const int PACKAGES_PER_SECOND = 24;

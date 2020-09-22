@@ -6,7 +6,6 @@
 
         public void Activate()
         {
-            throw new System.NotImplementedException();
         }
     }
 }
