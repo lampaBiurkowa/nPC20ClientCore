@@ -3,17 +3,17 @@ using System.Threading;
 
 namespace CapsBallCore
 {
-    public class ExtraMassBonus : IBonus
+    public class ExtraBounceBonus : IBonus
     {
         public string TexturePath => "Resources/Bonuses/extraMass.png";
 
-        public static Action ExtraMassStarted;
-        public static Action ExtraMassEnded;
+        public static Action ExtraBounceStarted;
+        public static Action ExtraBounceEnded;
 
         public void Activate()
         {
             BonusStates.ExtraMassEnabled = true;
-            ExtraMassStarted?.Invoke();
+            ExtraBounceStarted?.Invoke();
             Thread endingThread = new Thread(waitAndHandleDisablingBonus);
             endingThread.Start();
         }
@@ -22,7 +22,7 @@ namespace CapsBallCore
         {
             Thread.Sleep(Constants.EXTRA_SKILL_DURATION_SECONDS * 1000);
             BonusStates.ExtraMassEnabled = false;
-            ExtraMassEnded?.Invoke();
+            ExtraBounceEnded?.Invoke();
         }
     }
 }

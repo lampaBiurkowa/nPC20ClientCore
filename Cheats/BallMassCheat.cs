@@ -10,7 +10,7 @@ namespace CapsBallCore
         public void Apply(StadiumData stadium, Player player, List<string> parameters)
         {
             float value = float.Parse(parameters[0]);
-            stadium.Environment.BallMass = value;
+            stadium.Environment.BallBounce = value;
         }
     }
 }

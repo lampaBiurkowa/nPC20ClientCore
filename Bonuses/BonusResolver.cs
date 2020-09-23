@@ -14,7 +14,7 @@ namespace CapsBallCore
             resolver.Add(new AmmoPowerBonus(), BonusType.AMMO_POWER);
             resolver.Add(new BilocationBonus(), BonusType.BILOCATION);
             resolver.Add(new BombBonus(), BonusType.BOMB);
-            resolver.Add(new ExtraMassBonus(), BonusType.EXTRA_MASS);
+            resolver.Add(new ExtraBounceBonus(), BonusType.EXTRA_MASS);
             resolver.Add(new ExtraPowerBonus(), BonusType.EXTRA_POWER);
             resolver.Add(new ExtraSpeedBonus(), BonusType.EXTRA_SPEED);
             resolver.Add(new GunLongBonus(), BonusType.GUN_LONG);

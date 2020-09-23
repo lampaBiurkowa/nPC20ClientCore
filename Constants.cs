@@ -4,9 +4,7 @@
     {
         const string RESOURCES_PATH = "Resources";
 
-        public const float DEFAULT_PLAYER_RADIUS = 25;
-        public const float BALL_RADIUS = 20;
-        public const int EXTRA_SKILL_BONUS_FACTOR = 10;
+        public const int EXTRA_SKILL_BONUS_FACTOR = 3;
 
         public const string BLUE_TEAM_TEXTURE_PATH = RESOURCES_PATH + "/blueTeam.png";
         public const string RED_TEAM_TEXTURE_PATH = RESOURCES_PATH + "/redTeam.png";

@@ -3,14 +3,15 @@ using System.Collections.Generic;
 
 namespace CapsBallCore
 {
-    public class PlayerSpeedCheat : ICheat
+    public class PlayerSizeCheat : ICheat
     {
         public int ParametersRequired => 1;
 
         public void Apply(StadiumData stadium, Player player, List<string> parameters)
         {
             float value = float.Parse(parameters[0]);
-            player.Skills.Speed = value;
+            if (value >= SharedConstants.MIN_SKILL_VALUE && value <= SharedConstants.MAX_SKILL_VALUE)
+                player.Skills.Size = value;
         }
     }
 }

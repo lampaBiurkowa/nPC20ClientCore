@@ -27,7 +27,7 @@ namespace CapsBallCore
             { new GlobalSpeedCheat(), GLOBAL_SPEED_CHEAT_ID },
             { new InvasionCheat(), INVASION_CHEAT_ID },
             { new PlayerInvisibleCheat(), PLAYER_INVISIBLE_CHEAT_ID },
-            { new PlayerMassCheat(), PLAYER_MASS_CHEAT_ID },
+            { new PlayerBounceCheat(), PLAYER_MASS_CHEAT_ID },
             { new PlayerPowerCheat(), PLAYER_POWER_CHEAT_ID },
             { new PlayerSpeedCheat(), PLAYER_SPEED_CHEAT_ID },
             { new PlayerWallBreakerCheat(), PLAYER_WALL_BREAKER_CHEAT_ID }
