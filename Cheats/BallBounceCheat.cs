@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace CapsBallCore
 {
-    public class  BallMassCheat : ICheat
+    public class BallBounceCheat : ICheat
     {
         public int ParametersRequired => 1;
 

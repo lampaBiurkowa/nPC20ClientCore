@@ -23,20 +23,21 @@ namespace CapsBallCore
             string[] data = File.ReadAllLines(getStadiumPath(stadiumName));
             bool stadiumDataLoaded = false;
 
-            foreach (string line in data) //TODO trim
+            foreach (string line in data)
             {
-                if (line.Length > 0 && line[0] == StadConstants.COMMENT_CHAR || string.IsNullOrWhiteSpace(line))
+                string trimmed = line.Trim();
+                if (trimmed.Length > 0 && trimmed[0] == StadConstants.COMMENT_CHAR || string.IsNullOrWhiteSpace(trimmed))
                     continue;
 
                 if (!stadiumDataLoaded)
                 {
-                    loadStadiumData(stadiumName, line);
+                    loadStadiumData(stadiumName, trimmed);
                     stadiumDataLoaded = true;
                 }
-                else if (line[0] == StadConstants.TARGET_ID)
-                    loadTargetData(line);
+                else if (trimmed[0] == StadConstants.TARGET_ID)
+                    loadTargetData(trimmed);
                 else
-                    Items.Add(new ItemData(stadiumName, line));
+                    Items.Add(new ItemData(stadiumName, trimmed));
             }
         }
 
@@ -55,14 +56,16 @@ namespace CapsBallCore
             BonusChangeSeconds = int.Parse(data[6]);
             BonusesCount = int.Parse(data[7]);
             float ballMass = float.Parse(data[8], CultureInfo.InvariantCulture);
-            float ballX = float.Parse(data[9], CultureInfo.InvariantCulture);
-            float ballY = float.Parse(data[10], CultureInfo.InvariantCulture);
+            float ballRadius = float.Parse(data[9], CultureInfo.InvariantCulture);
+            float ballX = float.Parse(data[10], CultureInfo.InvariantCulture);
+            float ballY = float.Parse(data[11], CultureInfo.InvariantCulture);
             BallDefaultPosition = new Vector2(ballX, ballY);
-            BackgroundPath = $"{StadConstants.STADIUMS_PATH}/{name}/{StadConstants.RESOURCES_PATH}/{data[11]}";
+            BackgroundPath = $"{StadConstants.STADIUMS_PATH}/{name}/{StadConstants.RESOURCES_PATH}/{data[12]}";
 
             Environment = new Environment()
             {
                 BallBounce = ballMass,
+                BallRadius = ballRadius,
                 FootballerBounceStep = footballerMass,
                 PowerStep = power,
                 FootballerRadiusStep = playerRadius,
